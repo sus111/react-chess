@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import Board from './board';
+import { observe } from './game';
 
-ReactDOM.render(
-  <Board knightPosition={[4,5]} />,
-  document.getElementById('root')
+const rootEl = document.getElementById('root');
+
+observe(knightPosition =>
+  ReactDOM.render(
+    <Board knightPosition={knightPosition} />,
+    rootEl
+  )
 );
