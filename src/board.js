@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Square from './square';
 import Knight from './knight';
-import { moveKnight } from './game'
+import { canMoveKnight, moveKnight } from './game';
 
 export default class Board extends Component {
   renderSquare (i) {
@@ -26,7 +26,9 @@ export default class Board extends Component {
   }
 
   handleSquareClick(toX, toY) {
-    moveKnight(toX, toY);
+    if (canMoveKnight(toX, toY)){
+      moveKnight(toX, toY);
+    }
   }
 
   render() {
